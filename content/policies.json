@@ -1,0 +1,232 @@
+[
+  {
+    "slug": "terms",
+    "title": "Terms and Conditions",
+    "hero": {
+      "src": "/images/amenities.jpg",
+      "alt": "Stone basin and timber bench at Together Wellness"
+    },
+    "items": [
+      {
+        "heading": "Bookings",
+        "body": "Classes, appointments and assessments can be booked online through our booking system or by contacting the studio. Your booking is confirmed once you receive a confirmation email."
+      },
+      {
+        "heading": "Cancellations and late changes",
+        "body": "We ask for at least 12 hours’ notice to cancel or reschedule a class, session or appointment. Cancellations made with less than 12 hours’ notice, and sessions missed without notice, will be charged in full. This lets us offer the place to someone on the waitlist."
+      },
+      {
+        "heading": "Waitlists",
+        "body": "When a class is full, you can join the waitlist. If a place becomes available, we will let you know through the booking system."
+      },
+      {
+        "heading": "Clinical Pilates",
+        "body": "An initial physiotherapy assessment is required before your first Clinical Pilates session, so your physiotherapist can set your program."
+      },
+      {
+        "heading": "Your health and safety",
+        "body": "Please tell us about any injury, pregnancy, recent surgery or change in your health before you book and before each class. Your instructor will check in with you before class and may adapt or suggest alternatives to exercises. If something needs a closer look, we may recommend a physiotherapy appointment before you continue with classes."
+      },
+      {
+        "heading": "Private health rebates",
+        "body": "Private health rebates are available for physiotherapy and Clinical Pilates. The rebate you receive depends on your fund and level of cover. We recommend checking your cover with your fund before your appointment."
+      },
+      {
+        "heading": "Memberships",
+        "body": "Memberships and class packs are subject to our Membership Policy, which sets out terms for payments, holds and cancellations."
+      },
+      {
+        "heading": "Privacy",
+        "body": "We collect and store personal and health information in line with our Privacy Policy and Australian privacy law. Your clinical information is only accessed by the clinicians involved in your care."
+      },
+      {
+        "heading": "Changes to these terms",
+        "body": "We may update these terms from time to time. The current version will always be available on this page. [Effective date to be confirmed.]"
+      }
+    ]
+  },
+  {
+    "slug": "faq",
+    "title": "Frequently Asked Questions",
+    "hero": {
+      "src": "/images/reception-desk.jpg",
+      "alt": "Reception desk at Together Wellness"
+    },
+    "items": [
+      {
+        "heading": "Who is Together Wellness for?",
+        "body": "Everyone. We work with people from adolescence to older age, at every stage of life, whether you are managing an injury, pregnant or postnatal, training for sport or simply want to move well."
+      },
+      {
+        "heading": "Do I need a referral to see a physiotherapist?",
+        "body": "No, you can book directly. If you have a referral or letter from your GP or specialist, please bring it to your first appointment."
+      },
+      {
+        "heading": "What happens at my first physiotherapy appointment?",
+        "body": "Your initial consultation runs for 60 minutes. We will talk through your history and what matters to you, assess how you move, and finish with a clear plan, including exercises and an explanation of what we found. Follow-up appointments run for 30 to 45 minutes."
+      },
+      {
+        "heading": "What is the difference between Clinical Pilates and Group Reformer?",
+        "body": "Clinical Pilates is up to four people with one physiotherapist, each working through their own program set after an initial physiotherapy assessment. Group Reformer classes are for up to 12 people, taught by instructors trained in our physiotherapist-led program, with every class checked in and adapted to the people in the room."
+      },
+      {
+        "heading": "Do I need an assessment before I start?",
+        "body": "An initial physiotherapy assessment is required before Clinical Pilates. You can join Group Reformer classes without one. If you have an injury or health concern, let us know when you book and we may suggest an assessment first."
+      },
+      {
+        "heading": "Can I come to classes while pregnant or after having a baby?",
+        "body": "Yes. Our Ante and Postnatal reformer classes are taught by a physiotherapist and programmed around each stage. Talk to us before you start so we can suggest the best place to begin."
+      },
+      {
+        "heading": "Can I claim a private health rebate?",
+        "body": "Private health rebates are available for physiotherapy and Clinical Pilates, depending on your fund and level of cover."
+      },
+      {
+        "heading": "What should I wear and bring?",
+        "body": "Comfortable clothing you can move in. [Confirm whether grip socks are required and whether they are available at the studio.]"
+      },
+      {
+        "heading": "What is your cancellation policy?",
+        "body": "We ask for at least 12 hours’ notice to cancel or reschedule. Late cancellations and missed sessions are charged in full."
+      },
+      {
+        "heading": "Where are you and where can I park?",
+        "body": "We are at 46 Manning St, Mosman Park WA 6012. [Parking details to be confirmed.]"
+      }
+    ]
+  },
+  {
+    "slug": "sustainability",
+    "title": "Sustainability Policy",
+    "hero": {
+      "src": "/images/water.jpg",
+      "alt": "Water, close up"
+    },
+    "items": [
+      {
+        "heading": "Our approach",
+        "body": "Feeling well extends to the spaces we inhabit and the world around us. Our approach to sustainability aims to reduce our environmental impact and increase our social commitments, starting with the issues that matter most to our clients, our team and our community."
+      },
+      {
+        "heading": "Designing the studio",
+        "body": "The studio has been designed with Pattern Studio using natural, considered materials, including certified timber, cork flooring and living plants. We have chosen materials and finishes for durability, so they last well and need replacing less often."
+      },
+      {
+        "heading": "Operating the studio",
+        "body": "We look for ways to reduce energy, water and waste in how we run the studio day to day, including refill stations in place of single-use bottles, digital booking and receipts, and suppliers who share our values."
+      },
+      {
+        "heading": "Our people",
+        "body": "We aim to be a fair, safe and supportive place to work, with ongoing training, mentoring and professional development for every member of our team."
+      },
+      {
+        "heading": "Our community",
+        "body": "We work with schools, sporting clubs and workplaces to take health education beyond the studio, and we look for local partners and suppliers wherever we can."
+      },
+      {
+        "heading": "B Corp certification",
+        "body": "We are working towards B Corp certification, which assesses a business on its social and environmental performance, transparency and accountability. We aim to complete this process within our first year of operation."
+      },
+      {
+        "heading": "Measuring and reporting",
+        "body": "We will measure our environmental impact, set targets and report on our progress. This policy will be reviewed at least once a year. [Review date to be confirmed.]"
+      }
+    ]
+  },
+  {
+    "slug": "membership",
+    "title": "Membership Policy",
+    "hero": {
+      "src": "/images/reformer-studio-wide.jpg",
+      "alt": "Reformer studio at Together Wellness"
+    },
+    "items": [
+      {
+        "heading": "Memberships and class packs",
+        "body": "We offer weekly memberships for Group Reformer classes, including an Unlimited membership and a three-classes-a-week membership, as well as class packs and casual classes. Current options and pricing are available on our Book Now page and through our booking system."
+      },
+      {
+        "heading": "Payments",
+        "body": "Memberships are billed weekly by direct debit from the payment method you provide when you join. Class packs and casual classes are paid in full at the time of purchase. If a payment fails, we will let you know and may pause bookings until it is resolved."
+      },
+      {
+        "heading": "Minimum term",
+        "body": "[Minimum membership term to be confirmed.]"
+      },
+      {
+        "heading": "Booking and attendance",
+        "body": "Membership classes are booked through our booking system and are subject to availability. Our 12-hour cancellation policy applies: classes cancelled with less than 12 hours’ notice, or missed without notice, count as attended. For class packs, the class is deducted from your pack."
+      },
+      {
+        "heading": "Holds",
+        "body": "You can request to put your membership on hold, for example for travel, illness, injury or pregnancy. [Hold length, notice required and any fees to be confirmed.]"
+      },
+      {
+        "heading": "Class pack expiry",
+        "body": "Class packs must be used within their expiry period, shown at the time of purchase. [Expiry period to be confirmed.]"
+      },
+      {
+        "heading": "Cancelling your membership",
+        "body": "To cancel your membership, contact the studio in writing. [Notice period to be confirmed.] Cancellation does not affect payments already due."
+      },
+      {
+        "heading": "Transfers",
+        "body": "Memberships and class packs are personal and cannot be transferred or shared."
+      },
+      {
+        "heading": "Changes to pricing or this policy",
+        "body": "We will give members at least [notice period] notice of any change to membership pricing or to this policy."
+      }
+    ]
+  },
+  {
+    "slug": "privacy",
+    "title": "Privacy Policy",
+    "hero": {
+      "src": "/images/ceramic-stones.jpg",
+      "alt": "Stacked ceramic stones"
+    },
+    "items": [
+      {
+        "heading": "Overview",
+        "body": "Together Wellness respects your privacy. This policy explains how we collect, use, store and share your personal and health information, in line with the Privacy Act 1988 (Cth) and the Australian Privacy Principles."
+      },
+      {
+        "heading": "What we collect",
+        "body": "We collect the information we need to provide our services, including your name, contact details and date of birth, your health history and clinical notes, health fund details, payment information, and your bookings and attendance. We collect most of this directly from you."
+      },
+      {
+        "heading": "How we use your information",
+        "body": "We use your information to provide physiotherapy, Pilates and wellness services, manage bookings and payments, process private health rebate claims, communicate with you about your care and appointments, and meet our legal and professional obligations."
+      },
+      {
+        "heading": "Health information",
+        "body": "Health information is sensitive information and is handled with particular care. Your clinical records are only accessed by the clinicians involved in your care, and are kept for the period required by law."
+      },
+      {
+        "heading": "Sharing your information",
+        "body": "We only share your information with your consent or where the law allows or requires it. This may include your GP or other practitioners involved in your care, your health fund when processing a rebate claim, and service providers who help us run the studio, such as our booking, payment and practice management systems."
+      },
+      {
+        "heading": "Marketing and updates",
+        "body": "If you sign up for updates, we will send you occasional emails about Together Wellness. You can unsubscribe at any time using the link in any email."
+      },
+      {
+        "heading": "Website and cookies",
+        "body": "Our website uses cookies and analytics tools to understand how it is used and to improve it. This information does not identify you personally."
+      },
+      {
+        "heading": "Storage and security",
+        "body": "We store your information securely and take reasonable steps to protect it from misuse, loss and unauthorised access. Some of our service providers may store data outside Australia, and we take reasonable steps to make sure they protect it."
+      },
+      {
+        "heading": "Accessing and correcting your information",
+        "body": "You can ask to access or correct the personal information we hold about you by contacting us. We will respond within a reasonable time."
+      },
+      {
+        "heading": "Questions and complaints",
+        "body": "If you have a question or concern about your privacy, please contact us at info@togetherwellness.com.au. If you are not satisfied with our response, you can contact the Office of the Australian Information Commissioner at oaic.gov.au. [Effective date to be confirmed.]"
+      }
+    ]
+  }
+]
