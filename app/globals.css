@@ -95,7 +95,14 @@ a.tw-tile:hover .tw-caption, a.tw-card-link:hover span { text-decoration: underl
 .tw-card-link { display: flex; flex-direction: column; gap: 10px; }
 .tw-card-link img, .tw-tile img { transition: opacity .2s ease-out; }
 .tw-card-link:hover img, a.tw-tile:hover img { opacity: .9; }
-@media (hover: none) { .tw-desc { opacity: 1; } }
+/* Touch screens (no hover): the description sits under the caption, never over the image */
+@media (hover: none) {
+  .tw-tile { display: flex; flex-direction: column; }
+  .tw-tile .tw-media { display: contents; }
+  .tw-tile img { order: 1; }
+  .tw-tile .tw-caption { order: 2; }
+  .tw-tile .tw-desc { order: 3; position: static; opacity: 1; margin: 6px 0 0; font-size: 14px; line-height: 1.45; max-width: none; }
+}
 
 /* Headings */
 .h-section { margin: 0; font-size: clamp(22px, 2.2vw, 32px); line-height: 1.05; }
