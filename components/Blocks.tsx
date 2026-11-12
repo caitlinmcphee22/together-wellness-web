@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import type { Block, Img, Settings, TeamMember } from '@/content/types'
-import { imgUrl } from '@/lib/sanity'
+import { imgUrl, videoUrls } from '@/lib/sanity'
 import { services } from '@/content/site'
 import { Logo } from './Logo'
 import { Accordion, MomenceEmbed, Slider, TeamGrid } from './Interactive'
+import { VideoLayer } from './VideoLayer'
 
 const isExternal = (href: string) => /^(https?:|mailto:|tel:)/.test(href)
 
@@ -15,7 +16,16 @@ function SmartLink({ href, className, children, style }: { href: string; classNa
 function Picture({ img, aspect, style, width = 1800 }: { img: Img; aspect?: string; style?: React.CSSProperties; width?: number }) {
   const url = imgUrl(img, width)
   if (!url) return null
-  return <img className="tw-img" src={url} alt={img.alt || ''} loading="lazy" style={{ aspectRatio: aspect, ...style }} />
+  const video = videoUrls(img)
+  const photo = <img className="tw-img" src={url} alt={img.alt || ''} loading="lazy" style={{ aspectRatio: aspect, ...(video ? {} : style) }} />
+  if (!video) return photo
+  // The photo keeps the layout and is the still frame; the video plays over it
+  return (
+    <span className="tw-pic" style={style}>
+      {photo}
+      <VideoLayer desktop={video.desktop} mobile={video.mobile} />
+    </span>
+  )
 }
 
 /* Image tile: caption below, description over the image on hover (under the caption on phones) */
@@ -37,6 +47,7 @@ export function Hero({ image }: { image: Img }) {
   return (
     <section className="tw-hero" aria-label="Together Wellness">
       <img className="tw-hero-img" src={imgUrl(image, 2400)} alt={image.alt || ''} fetchPriority="high" />
+      {videoUrls(image) ? <VideoLayer desktop={videoUrls(image)!.desktop} mobile={videoUrls(image)!.mobile} className="tw-hero-img" /> : null}
       <div className="tw-hero-shade" aria-hidden="true" />
       <div className="tw-hero-inner">
         <div className="tw-hero-logo">
@@ -123,12 +134,12 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
             {b.eyebrow ? <p className="tw-label eyebrow">{b.eyebrow}</p> : null}
             <h1 className="tw-head h-split">{b.title}</h1>
           </div>
-          <Slider slides={[{ ...b.image, url: imgUrl(b.image) }]} />
+          <Slider slides={[{ ...b.image, url: imgUrl(b.image), videoUrl: videoUrls(b.image) }]} />
         </section>
       )
 
     case 'split': {
-      const slides = (b.slides || []).map((s) => ({ ...s, url: imgUrl(s) }))
+      const slides = (b.slides || []).map((s) => ({ ...s, url: imgUrl(s), videoUrl: videoUrls(s) }))
       return (
         <section className="tw-split">
           <div className={`tw-split-text${b.pinned ? ' tw-pin' : ''}`}>
@@ -144,7 +155,7 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
             <div className="tw-cards">
               {slides.map((s, i) => (
                 <figure key={i}>
-                  <img className="tw-img" src={s.url} alt={s.alt || ''} loading="lazy" style={{ aspectRatio: '4 / 5' }} />
+                  <Picture img={s} aspect="4 / 5" />
                   {s.caption ? <figcaption className="tw-label tw-caption">{s.caption}</figcaption> : null}
                 </figure>
               ))}
@@ -153,7 +164,7 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
             <div className="tw-stack">
               {slides.map((s, i) => (
                 <figure key={i}>
-                  <img className="tw-img" src={s.url} alt={s.alt || ''} loading="lazy" style={{ aspectRatio: '3 / 2' }} />
+                  <Picture img={s} aspect="3 / 2" />
                   {s.caption ? <figcaption className="tw-label tw-caption">{s.caption}</figcaption> : null}
                 </figure>
               ))}

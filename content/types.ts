@@ -6,6 +6,10 @@ export type Img = {
   asset?: { _ref: string }
   alt?: string
   caption?: string
+  /** Optional looping video shown in place of the photo (the photo becomes its still frame). */
+  video?: { asset?: { _ref: string } }
+  /** Optional smaller version of the video for phones. */
+  videoMobile?: { asset?: { _ref: string } }
 }
 
 export type LinkT = { label: string; href: string }

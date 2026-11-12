@@ -16,3 +16,16 @@ export function imgUrl(img: Img | undefined, width = 1800): string {
   if (img.asset?._ref) return builder.image(img).width(width).auto('format').quality(80).url()
   return img.src || ''
 }
+
+/** Sanity file reference ("file-<id>-<ext>") to its CDN URL. */
+function fileRefUrl(ref?: string): string | undefined {
+  const m = ref?.match(/^file-([a-zA-Z0-9]+)-([a-z0-9]+)$/)
+  return m ? `https://cdn.sanity.io/files/${projectId}/${dataset}/${m[1]}.${m[2]}` : undefined
+}
+
+/** Video URLs for an image slot, if a video has been uploaded in place of the photo. */
+export function videoUrls(img: Img | undefined): { desktop: string; mobile?: string } | undefined {
+  const desktop = fileRefUrl(img?.video?.asset?._ref)
+  if (!desktop) return undefined
+  return { desktop, mobile: fileRefUrl(img?.videoMobile?.asset?._ref) }
+}

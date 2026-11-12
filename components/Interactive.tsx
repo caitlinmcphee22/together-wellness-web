@@ -3,9 +3,12 @@
 import { useEffect, useRef, useState } from 'react'
 import type { Img, TeamMember } from '@/content/types'
 import { panelColours } from '@/content/site'
+import { VideoLayer } from './VideoLayer'
 
 /* Image slider: tap or click the image (or a dot) to move through the set */
-export function Slider({ slides }: { slides: (Img & { url: string })[] }) {
+type Slide = Img & { url: string; videoUrl?: { desktop: string; mobile?: string } }
+
+export function Slider({ slides }: { slides: Slide[] }) {
   const [i, setI] = useState(0)
   if (!slides.length) return null
   const cur = slides[i] || slides[0]
@@ -15,12 +18,16 @@ export function Slider({ slides }: { slides: (Img & { url: string })[] }) {
       {many ? (
         <button className="tw-slider" type="button" onClick={() => setI((i + 1) % slides.length)} aria-label="Next image">
           {slides.map((s, n) => (
-            <img key={n} className={`tw-slide${n === i ? ' is-active' : ''}`} src={s.url} alt={n === i ? s.alt || '' : ''} loading="lazy" />
+            <span key={n}>
+              <img className={`tw-slide${n === i ? ' is-active' : ''}`} src={s.url} alt={n === i ? s.alt || '' : ''} loading="lazy" />
+              {s.videoUrl ? <VideoLayer desktop={s.videoUrl.desktop} mobile={s.videoUrl.mobile} className={`tw-slide${n === i ? ' is-active' : ''}`} /> : null}
+            </span>
           ))}
         </button>
       ) : (
         <div className="tw-slider" style={{ cursor: 'default' }}>
           <img className="tw-slide is-active" src={cur.url} alt={cur.alt || ''} loading="lazy" />
+          {cur.videoUrl ? <VideoLayer desktop={cur.videoUrl.desktop} mobile={cur.videoUrl.mobile} className="tw-slide is-active" /> : null}
         </div>
       )}
       <div className="tw-slider-bar">
