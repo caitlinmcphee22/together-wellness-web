@@ -1,5 +1,6 @@
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { TapToReveal } from '@/components/TapToReveal'
 import { getSettings } from '@/lib/content'
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -9,6 +10,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       <Header tagline={settings.tagline} instagram={settings.instagram} />
       <main id="top">{children}</main>
       <Footer settings={settings} />
+      <TapToReveal />
     </div>
   )
 }
