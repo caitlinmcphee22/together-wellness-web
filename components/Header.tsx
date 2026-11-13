@@ -28,12 +28,14 @@ export function Header({ tagline, instagram }: Props) {
       const past = y > vh - 60
       setPastHero(past)
       lastY.current = y
-      // Homepage only: the logo reappears in the centre ~600ms after scrolling stops
+      // Homepage only: the logo reappears in the centre after scrolling stops
+      // (600ms on desktop, 1.5s on phones)
       setLogoOn(false)
       if (logoTimer.current) clearTimeout(logoTimer.current)
+      const delay = window.matchMedia('(max-width: 760px)').matches ? 1500 : 600
       logoTimer.current = setTimeout(() => {
         if (window.scrollY > (window.innerHeight || 800) - 60) setLogoOn(true)
-      }, 600)
+      }, delay)
     }
     onScroll()
     setLogoOn(false)
