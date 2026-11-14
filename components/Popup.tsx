@@ -28,22 +28,31 @@ const COLOURS: Record<string, string> = {
 const KEY = 'tw-popup-dismissed'
 const REMEMBER_DAYS = 14
 
-/* Sign-up popup, shown once to each visitor (again after two weeks, or straight away if the copy changes). */
+/* Sign-up popup on the home page, shown once to each visitor (again after two weeks, or straight away if the copy changes). */
 export function Popup({ data }: { data: PopupData }) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
   const boxRef = useRef<HTMLDivElement>(null)
   const stamp = data.version || `${data.heading}|${data.body}`
 
+  // Home page only: appears a moment after the visitor scrolls past the landing image
   useEffect(() => {
-    if (!data.enabled) return
+    if (!data.enabled || pathname !== '/') return
     try {
       const saved = JSON.parse(localStorage.getItem(KEY) || 'null')
       if (saved && saved.stamp === stamp && Date.now() - saved.at < REMEMBER_DAYS * 864e5) return
     } catch {}
-    const t = window.setTimeout(() => setOpen(true), Math.max(0, data.delaySeconds ?? 4) * 1000)
-    return () => window.clearTimeout(t)
-  }, [data.enabled, data.delaySeconds, stamp])
+    const hero = document.querySelector('.tw-hero')
+    if (!hero) return
+    let t = 0
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting || t) return
+      io.disconnect()
+      t = window.setTimeout(() => setOpen(true), Math.max(0, data.delaySeconds ?? 2) * 1000)
+    })
+    io.observe(hero)
+    return () => { io.disconnect(); window.clearTimeout(t) }
+  }, [data.enabled, data.delaySeconds, stamp, pathname])
 
   useEffect(() => {
     if (!open) return

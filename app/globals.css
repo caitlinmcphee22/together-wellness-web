@@ -276,7 +276,7 @@ a.tw-tile:hover .tw-caption, a.tw-card-link:hover span { text-decoration: underl
 .tw-pop-img { position: relative; aspect-ratio: 4 / 5; align-self: end; overflow: hidden; }
 .tw-pop-img img { object-fit: cover; }
 @media (max-width: 760px) {
-  .tw-pop-wrap { padding: 20px; align-items: flex-end; }
+  .tw-pop-wrap { padding: 20px; }
   .tw-pop { --pad: 20px; grid-template-columns: 1fr; gap: 24px; max-height: calc(100svh - 40px); overflow-y: auto; }
   .tw-pop-text { min-height: 0; }
   .tw-pop-heading, .tw-pop-close, .tw-pop-cta { font-size: 13px; }

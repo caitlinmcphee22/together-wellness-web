@@ -382,7 +382,7 @@ export const siteSettings = defineType({
       name: 'popup',
       title: 'Sign-up popup',
       type: 'object',
-      description: 'Shown once to each visitor a few seconds after they arrive. Visitors who close it see it again after two weeks, or straight away if the heading or body text changes.',
+      description: 'Shown on the home page once a visitor scrolls past the landing image, once per visitor. Visitors who close it see it again after two weeks, or straight away if the heading or body text changes.',
       options: { collapsible: true, collapsed: false },
       fields: [
         defineField({ name: 'enabled', title: 'Show the popup', type: 'boolean', initialValue: true }),
@@ -408,7 +408,7 @@ export const siteSettings = defineType({
         defineField({ name: 'image', type: 'siteImage' }),
         defineField({ name: 'ctaLabel', title: 'Button text', type: 'string', initialValue: 'Subscribe' }),
         defineField({ name: 'ctaLink', title: 'Button link', type: 'string', initialValue: '#subscribe', description: 'Leave as #subscribe to take visitors to the sign-up form. A page link like /book also works.' }),
-        defineField({ name: 'delaySeconds', title: 'Delay before it appears (seconds)', type: 'number', initialValue: 4 }),
+        defineField({ name: 'delaySeconds', title: 'Pause after scrolling past the landing image (seconds)', type: 'number', initialValue: 2 }),
       ],
     }),
   ],

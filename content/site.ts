@@ -20,7 +20,7 @@ export const settings: Settings = {
     image: { src: '/images/reformer-studio.jpg', alt: 'Reformer studio with natural light' },
     ctaLabel: 'Subscribe',
     ctaLink: '#subscribe',
-    delaySeconds: 4,
+    delaySeconds: 2,
   },
 }
 
