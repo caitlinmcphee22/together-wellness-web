@@ -86,11 +86,11 @@ export function Header({ tagline, instagram }: Props) {
       <nav id="site-menu" className={`tw-panel${menuOpen ? ' is-open' : ''}`} aria-label="Menu">
         <div className="tw-panel-body tw-label">
           <div className="tw-menu-top">
-            <span className="tw-hide-sm">Menu</span>
-            <span className="tw-show-sm">{tagline}</span>
             <button className="tw-navbtn" type="button" onClick={close} aria-label="Close menu" style={{ fontSize: 13 }}>
               Close
             </button>
+            <span className="tw-menu-tag">{tagline}</span>
+            <Link className="tw-menu-book" href="/book-now" onClick={close}>Book</Link>
           </div>
           <div className="tw-menu-main">
             <Link className="tw-panel-link" href="/" onClick={close}>Home</Link>
