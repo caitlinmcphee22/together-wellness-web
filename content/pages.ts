@@ -21,7 +21,7 @@ export const pages: Page[] = [
         _type: 'tile',
         image: im('frontage', 'Street frontage of the Together Wellness studio'),
         caption: 'Together Wellness, Mosman Park',
-        description: 'Our first studio, at Mos Lane, Mosman Park.',
+        description: 'Designed to feel calm, warm and easy to be in, from the moment you arrive.',
         link: '/our-space',
         width: 'xl',
         aspect: '16 / 9',
@@ -68,7 +68,7 @@ export const pages: Page[] = [
       },
       {
         _type: 'sectionIntro',
-        heading: 'A new space for wellbeing.',
+        heading: 'A space designed for wellbeing.',
         body: 'Inspired by the natural warmth and relaxed rhythm of coastal Western Australia, our space has been thoughtfully designed to balance movement with moments of pause.',
       },
       {
@@ -141,7 +141,7 @@ export const pages: Page[] = [
         heading: 'Overview',
         layout: 'stack',
         paragraphs: [
-          'Together Wellness is a new destination for movement, health and wellbeing, with our first studio in Mosman Park.',
+          'Together Wellness is a design-led studio for movement, health and wellbeing at Mos Lane, Mosman Park, where every space has been shaped to help you feel at ease.',
           'We bring together expert physiotherapy, considered Pilates and a more personal approach to wellbeing, in a space designed around the way we move, feel and live.',
         ],
         link: { label: 'Explore our space', href: '/our-space' },
@@ -203,7 +203,7 @@ export const pages: Page[] = [
       {
         _type: 'splitTitle',
         eyebrow: 'Our Space',
-        title: 'A new space for wellbeing.',
+        title: 'A space designed for wellbeing.',
         image: im('reformer-studio-wide', 'Reformer studio at Together Wellness', 'Reformer studio' + ai),
       },
       {
@@ -283,7 +283,7 @@ export const pages: Page[] = [
       {
         _type: 'split',
         heading: 'Location',
-        paragraphs: ['Our first studio is at Mos Lane, Mosman Park, between the river and the coast.'],
+        paragraphs: ['The studio sits at Mos Lane, Mosman Park, between the river and the coast.'],
         slides: [im('frontage', 'Street frontage of the Together Wellness studio', 'Mos Lane frontage' + ai)],
       },
       { _type: 'exploreServices' },
@@ -435,7 +435,7 @@ export const pages: Page[] = [
       {
         _type: 'tileWithText',
         tile: { ...im('arrival', 'Reception desk with timber shelving', 'Arrival, Mosman Park'), description: 'Arrive, settle in and take a moment before you move.' },
-        heading: 'A new space for wellbeing.',
+        heading: 'Room to pause.',
         paragraphs: [
           'Inspired by the natural warmth and relaxed rhythm of coastal Western Australia, our space has been thoughtfully designed to balance movement with moments of pause.',
           'Natural materials, warm textures and considered details create an environment that feels as welcoming as it is restorative. A place where the experience of arriving, moving and spending time matters just as much as the care you receive.',
