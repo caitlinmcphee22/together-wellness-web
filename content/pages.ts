@@ -9,7 +9,7 @@ export const pages: Page[] = [
     title: 'Home',
     seoTitle: 'Together Wellness | Physiotherapy, Pilates and Wellness in Mosman Park',
     seoDescription:
-      'A physiotherapist-led studio for physiotherapy, reformer and clinical Pilates, and wellness on Mos Lane, Mosman Park, Western Australia.',
+      'A physiotherapist-led studio for physiotherapy, reformer and clinical Pilates, and wellness at Mos Lane, Mosman Park, Western Australia.',
     hero: im('reformer-studio-wide', 'Reformer studio at Together Wellness, Mosman Park'),
     blocks: [
       {
@@ -21,7 +21,7 @@ export const pages: Page[] = [
         _type: 'tile',
         image: im('frontage', 'Street frontage of the Together Wellness studio'),
         caption: 'Together Wellness, Mosman Park',
-        description: 'Our first studio, on Mos Lane in Mosman Park.',
+        description: 'Our first studio, at Mos Lane, Mosman Park.',
         link: '/our-space',
         width: 'xl',
         aspect: '16 / 9',
@@ -197,7 +197,7 @@ export const pages: Page[] = [
     slug: 'our-space',
     title: 'Our Space',
     seoDescription:
-      'The Together Wellness studio on Mos Lane, Mosman Park: a reformer studio, a clinical Pilates studio, treatment rooms and a lounge, designed with Pattern Studio.',
+      'The Together Wellness studio at Mos Lane, Mosman Park: a reformer studio, a clinical Pilates studio, treatment rooms and a lounge, designed with Pattern Studio.',
     hero: im('reception-lounge', 'Reception lounge at Together Wellness'),
     blocks: [
       {
@@ -283,7 +283,7 @@ export const pages: Page[] = [
       {
         _type: 'split',
         heading: 'Location',
-        paragraphs: ['Our first studio is on Mos Lane in Mosman Park, between the river and the coast.'],
+        paragraphs: ['Our first studio is at Mos Lane, Mosman Park, between the river and the coast.'],
         slides: [im('frontage', 'Street frontage of the Together Wellness studio', 'Mos Lane frontage' + ai)],
       },
       { _type: 'exploreServices' },

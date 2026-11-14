@@ -4,7 +4,7 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://togetherwellness.com.au'),
   title: { default: 'Together Wellness', template: '%s | Together Wellness' },
-  description: 'Modern physiotherapy, Pilates and wellness on Mos Lane, Mosman Park, Western Australia.',
+  description: 'Modern physiotherapy, Pilates and wellness at Mos Lane, Mosman Park, Western Australia.',
   // Kept out of search engines until launch. Remove when the domain switches over.
   robots: process.env.NEXT_PUBLIC_ALLOW_INDEXING === 'true' ? undefined : { index: false, follow: false },
 }
