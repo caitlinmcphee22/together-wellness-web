@@ -70,7 +70,7 @@ export function Header({ tagline, instagram }: Props) {
           </Link>
           <div className="tw-header-side end">
             <Link href="/book-now" style={{ padding: '12px 0' }}>
-              Book Now
+              Book
             </Link>
           </div>
         </div>
@@ -114,7 +114,7 @@ export function Header({ tagline, instagram }: Props) {
               <Link href="/wellness" onClick={close} tabIndex={servicesOpen ? 0 : -1}>Wellness</Link>
             </div>
             <Link className="tw-panel-link" href="/our-space" onClick={close}>Our Space</Link>
-            <Link className="tw-panel-link" href="/book-now" onClick={close}>Book Now</Link>
+            <Link className="tw-panel-link" href="/book-now" onClick={close}>Book</Link>
             <a className="tw-panel-link" href="#contact" onClick={close}>Contact</a>
           </div>
           <div className="tw-menu-foot">

@@ -471,15 +471,15 @@ export const pages: Page[] = [
   },
   {
     slug: 'book-now',
-    title: 'Book Now',
+    title: 'Book',
     seoDescription:
       'Book physiotherapy, clinical Pilates or reformer classes at Together Wellness, Mosman Park.',
     hero: im('clinical-studio', 'Clinical Pilates studio at Together Wellness'),
     blocks: [
       {
         _type: 'pageTitle',
-        eyebrow: 'Book Now',
-        title: 'Book Now',
+        eyebrow: 'Book',
+        title: 'Book',
         quote: 'Whole of body. Whole of life.',
         intro:
           'Choose how you would like to start. If you are new to physiotherapy or clinical Pilates with us, begin with an initial consultation so we can understand what is going on and plan from there.',
