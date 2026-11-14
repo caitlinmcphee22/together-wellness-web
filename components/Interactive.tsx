@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import type { Img, TeamMember } from '@/content/types'
 import { panelColours } from '@/content/site'
@@ -19,14 +20,14 @@ export function Slider({ slides }: { slides: Slide[] }) {
         <button className="tw-slider" type="button" onClick={() => setI((i + 1) % slides.length)} aria-label="Next image">
           {slides.map((s, n) => (
             <span key={n}>
-              <img className={`tw-slide${n === i ? ' is-active' : ''}`} src={s.url} alt={n === i ? s.alt || '' : ''} loading="lazy" />
+              <Image className={`tw-slide${n === i ? ' is-active' : ''}`} src={s.url} alt={n === i ? s.alt || '' : ''} fill sizes="(max-width: 760px) 100vw, 66vw" quality={80} />
               {s.videoUrl ? <VideoLayer desktop={s.videoUrl.desktop} mobile={s.videoUrl.mobile} className={`tw-slide${n === i ? ' is-active' : ''}`} /> : null}
             </span>
           ))}
         </button>
       ) : (
         <div className="tw-slider" style={{ cursor: 'default' }}>
-          <img className="tw-slide is-active" src={cur.url} alt={cur.alt || ''} loading="lazy" />
+          <Image className="tw-slide is-active" src={cur.url} alt={cur.alt || ''} fill sizes="(max-width: 760px) 100vw, 66vw" quality={80} />
           {cur.videoUrl ? <VideoLayer desktop={cur.videoUrl.desktop} mobile={cur.videoUrl.mobile} className="tw-slide is-active" /> : null}
         </div>
       )}

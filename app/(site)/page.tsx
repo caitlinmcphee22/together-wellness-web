@@ -15,7 +15,7 @@ export default async function Home() {
   return (
     <>
       <LocalBusinessJsonLd settings={settings} />
-      <Hero image={page.hero} />
+      <Hero image={page.hero} isHome />
       <Blocks blocks={page.blocks} settings={settings} team={team} />
     </>
   )

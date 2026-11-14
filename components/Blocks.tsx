@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Block, Img, Settings, TeamMember } from '@/content/types'
 import { imgUrl, videoUrls } from '@/lib/sanity'
 import { services } from '@/content/site'
@@ -13,27 +14,37 @@ function SmartLink({ href, className, children, style }: { href: string; classNa
   return <Link href={href} className={className} style={style}>{children}</Link>
 }
 
-function Picture({ img, aspect, style, width = 1800 }: { img: Img; aspect?: string; style?: React.CSSProperties; width?: number }) {
+/* Common display widths, so phones and laptops download an image sized for them */
+export const SIZES = {
+  full: '100vw',
+  wide: '(max-width: 760px) 100vw, 95vw',
+  tile: '(max-width: 760px) 100vw, 75vw',
+  split: '(max-width: 760px) 100vw, 66vw',
+  half: '(max-width: 760px) 100vw, 50vw',
+  third: '(max-width: 760px) 100vw, 33vw',
+  thumb: '(max-width: 760px) 85vw, 25vw',
+}
+
+function Picture({ img, aspect = '3 / 2', style, sizes = SIZES.tile, width = 2400 }: { img: Img; aspect?: string; style?: React.CSSProperties; sizes?: string; width?: number }) {
   const url = imgUrl(img, width)
   if (!url) return null
   const video = videoUrls(img)
-  const photo = <img className="tw-img" src={url} alt={img.alt || ''} loading="lazy" style={{ aspectRatio: aspect, ...(video ? {} : style) }} />
-  if (!video) return photo
-  // The photo keeps the layout and is the still frame; the video plays over it
+  // The box holds the shape; the photo fills it at a size chosen for the screen.
+  // If a video is set, it plays over the photo, which stays as the still frame.
   return (
-    <span className="tw-pic" style={style}>
-      {photo}
-      <VideoLayer desktop={video.desktop} mobile={video.mobile} />
+    <span className="tw-imgbox" style={{ aspectRatio: aspect, ...style }}>
+      <Image className="tw-img-fill" src={url} alt={img.alt || ''} fill sizes={sizes} quality={80} />
+      {video ? <VideoLayer desktop={video.desktop} mobile={video.mobile} /> : null}
     </span>
   )
 }
 
 /* Image tile: caption below, description over the image on hover (under the caption on phones) */
-function Tile({ image, caption, description, link, width = 'full', aspect }: { image: Img; caption?: string; description?: string; link?: string; width?: string; aspect?: string }) {
+function Tile({ image, caption, description, link, width = 'full', aspect, sizes }: { image: Img; caption?: string; description?: string; link?: string; width?: string; aspect?: string; sizes?: string }) {
   const inner = (
     <>
       <div className="tw-media">
-        <Picture img={image} aspect={aspect} />
+        <Picture img={image} aspect={aspect} sizes={sizes || (width === 's' ? SIZES.half : width === 'full' ? SIZES.wide : SIZES.tile)} />
         {description ? <p className="tw-desc">{description}</p> : null}
       </div>
       {caption ? <p className="tw-label tw-caption">{caption}</p> : null}
@@ -43,16 +54,18 @@ function Tile({ image, caption, description, link, width = 'full', aspect }: { i
   return link ? <SmartLink href={link} className={cls}>{inner}</SmartLink> : <div className={cls}>{inner}</div>
 }
 
-export function Hero({ image }: { image: Img }) {
+export function Hero({ image, isHome = false }: { image: Img; isHome?: boolean }) {
+  // On the homepage the logo is the page's main heading; other pages have their own title
+  const LogoWrap = isHome ? 'h1' : 'div'
   return (
     <section className="tw-hero" aria-label="Together Wellness">
-      <img className="tw-hero-img" src={imgUrl(image, 2400)} alt={image.alt || ''} fetchPriority="high" />
+      <Image className="tw-hero-img" src={imgUrl(image, 3200)} alt={image.alt || ''} fill priority sizes="100vw" quality={80} />
       {videoUrls(image) ? <VideoLayer desktop={videoUrls(image)!.desktop} mobile={videoUrls(image)!.mobile} className="tw-hero-img" /> : null}
       <div className="tw-hero-shade" aria-hidden="true" />
       <div className="tw-hero-inner">
-        <div className="tw-hero-logo">
+        <LogoWrap className="tw-hero-logo">
           <Logo />
-        </div>
+        </LogoWrap>
       </div>
     </section>
   )
@@ -65,7 +78,9 @@ export function ExploreServices({ heading = 'Explore our services' }: { heading?
         <h2 className="tw-head" style={{ margin: 0, fontSize: 16 }}>{heading}</h2>
         {services.map((s) => (
           <Link key={s.href} className="tw-card-link" href={s.href}>
-            <img className="tw-img" src={s.image} alt="" loading="lazy" style={{ aspectRatio: '3 / 2' }} />
+            <span className="tw-imgbox" style={{ aspectRatio: '3 / 2' }}>
+              <Image className="tw-img-fill" src={s.image} alt="" fill sizes={SIZES.thumb} quality={75} />
+            </span>
             <span className="tw-label" style={{ fontSize: 14 }}>{s.label}</span>
           </Link>
         ))}
@@ -106,7 +121,7 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
     case 'fullImage':
       return (
         <section className="sec pb-120">
-          <Picture img={b.image} aspect={b.aspect} width={2400} />
+          <Picture img={b.image} aspect={b.aspect} sizes={SIZES.wide} width={3200} />
           {b.caption ? <p className="tw-label tw-caption">{b.caption}</p> : null}
         </section>
       )
@@ -121,7 +136,7 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
             </div>
             <div>
               {b.quote ? <p className="tw-quote" style={{ margin: '0 0 10px', fontSize: 20 }}>{b.quote}</p> : null}
-              {b.intro ? <p style={{ margin: 0, fontSize: 13 }}>{b.intro}</p> : null}
+              {b.intro ? <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55 }}>{b.intro}</p> : null}
             </div>
           </div>
         </section>
@@ -155,7 +170,7 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
             <div className="tw-cards">
               {slides.map((s, i) => (
                 <figure key={i}>
-                  <Picture img={s} aspect="4 / 5" />
+                  <Picture img={s} aspect="4 / 5" sizes={SIZES.third} />
                   {s.caption ? <figcaption className="tw-label tw-caption">{s.caption}</figcaption> : null}
                 </figure>
               ))}
@@ -164,7 +179,7 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
             <div className="tw-stack">
               {slides.map((s, i) => (
                 <figure key={i}>
-                  <Picture img={s} aspect="3 / 2" />
+                  <Picture img={s} aspect="3 / 2" sizes={SIZES.split} />
                   {s.caption ? <figcaption className="tw-label tw-caption">{s.caption}</figcaption> : null}
                 </figure>
               ))}
@@ -199,7 +214,7 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
               {b.items.map((it, i) => (
                 <div key={i} className="rule-item" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   <h3 className="tw-head" style={{ margin: 0, fontSize: 13 }}>{it.title}</h3>
-                  {it.body ? <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55 }}>{it.body}</p> : null}
+                  {it.body ? <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55 }}>{it.body}</p> : null}
                 </div>
               ))}
             </div>
@@ -231,12 +246,12 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
         <section className="sec pb-160">
           <div className="grid g2" style={{ gap: 30, alignItems: 'start' }}>
             {b.left.description || b.left.caption ? (
-              <Tile image={b.left} caption={b.left.caption} description={b.left.description} aspect={b.aspect || '4 / 5'} />
+              <Tile image={b.left} caption={b.left.caption} description={b.left.description} aspect={b.aspect || '4 / 5'} sizes={SIZES.half} />
             ) : (
-              <Picture img={b.left} aspect={b.aspect || '4 / 5'} />
+              <Picture img={b.left} aspect={b.aspect || '4 / 5'} sizes={SIZES.half} />
             )}
             <div className="offset" style={{ paddingTop: 160 }}>
-              <Picture img={b.right} aspect={b.aspect || '4 / 5'} />
+              <Picture img={b.right} aspect={b.aspect || '4 / 5'} sizes={SIZES.half} />
             </div>
           </div>
         </section>
@@ -246,11 +261,11 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
       return (
         <section className="sec pb-160">
           <div className="grid g2" style={{ gap: 30, alignItems: 'start' }}>
-            <Tile image={b.tile} caption={b.tile.caption} description={b.tile.description} aspect="3 / 5" />
+            <Tile image={b.tile} caption={b.tile.caption} description={b.tile.description} aspect="3 / 5" sizes={SIZES.half} />
             <div className="offset" style={{ paddingTop: 120, display: 'flex', flexDirection: 'column', gap: 28 }}>
               <h2 className="tw-head h-section">{b.heading}</h2>
               {(b.paragraphs || []).map((p, i) => <p key={i} className="body-copy">{p}</p>)}
-              {b.image ? <Picture img={b.image} aspect="4 / 5" style={{ marginTop: 20 }} /> : null}
+              {b.image ? <Picture img={b.image} aspect="4 / 5" style={{ marginTop: 20 }} sizes={SIZES.half} /> : null}
             </div>
           </div>
         </section>
@@ -301,7 +316,7 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
           <div className="grid g3">
             {b.items.map((it, i) => (
               <article key={i} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                <Tile image={it.image} caption={it.caption} description={it.description} aspect="4 / 3" />
+                <Tile image={it.image} caption={it.caption} description={it.description} aspect="4 / 3" sizes={SIZES.third} />
                 <p className="body-copy" style={{ lineHeight: 1.55 }}>{it.body}</p>
                 <div>
                   <SmartLink href={it.cta.href} className="tw-btn tw-label">{it.cta.label}</SmartLink>
