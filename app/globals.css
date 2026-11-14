@@ -244,3 +244,10 @@ a.tw-tile:hover .tw-caption, a.tw-card-link:hover span { text-decoration: underl
 .tw-pic { position: relative; display: block; }
 .tw-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
 @media (max-width: 760px) { .tw-tile .tw-pic { order: 1; } }
+
+/* Full-bleed hero under the iPhone status bar: keep header, menu and bio panel text clear of it */
+.tw-header-row, .tw-panel-body, .tw-bio-body { padding-top: max(10px, env(safe-area-inset-top)); }
+@media (max-width: 760px) {
+  .tw-header-row { padding-top: max(8px, env(safe-area-inset-top)); }
+  .tw-panel-body, .tw-bio-body { padding-top: max(4px, env(safe-area-inset-top)); }
+}

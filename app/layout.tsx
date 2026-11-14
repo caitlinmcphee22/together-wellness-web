@@ -9,7 +9,9 @@ export const metadata: Metadata = {
   robots: process.env.NEXT_PUBLIC_ALLOW_INDEXING === 'true' ? undefined : { index: false, follow: false },
 }
 
-export const viewport: Viewport = { themeColor: '#F9F7EE' }
+// No theme colour: it tinted Safari's top bar Bone, which looked like a gap above the hero image.
+// viewportFit cover lets the hero run under the iPhone status bar, edge to edge.
+export const viewport: Viewport = { viewportFit: 'cover' }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
