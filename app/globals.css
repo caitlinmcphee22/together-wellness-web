@@ -262,26 +262,25 @@ a.tw-tile:hover .tw-caption, a.tw-card-link:hover span { text-decoration: underl
 .tw-pop-wrap.is-open { visibility: visible; transition: visibility 0s; }
 .tw-pop-scrim { position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: rgba(249, 247, 238, .55); opacity: 0; transition: opacity .35s ease-out; cursor: pointer; }
 .tw-pop-wrap.is-open .tw-pop-scrim { opacity: 1; }
-.tw-pop { position: relative; display: grid; grid-template-columns: 1fr 300px; gap: 40px; width: min(860px, 100%); padding: 32px; color: var(--ink); opacity: 0; transform: translateY(12px); transition: opacity .35s ease-out, transform .35s ease-out; }
+.tw-pop { --pad: 32px; position: relative; display: grid; grid-template-columns: 1fr 320px; gap: 48px; width: min(780px, 100%); padding: var(--pad); color: var(--ink); opacity: 0; transform: translateY(12px); transition: opacity .35s ease-out, transform .35s ease-out; }
 .tw-pop-wrap.is-open .tw-pop { opacity: 1; transform: none; }
-.tw-pop-text { display: flex; flex-direction: column; min-height: 300px; }
 .tw-pop:focus { outline: none; }
-.tw-pop-heading { margin: 0; padding: 12px 70px 0 0; font-size: 14px; line-height: 1.3; }
-.tw-pop-close { position: absolute; top: 20px; right: 32px; z-index: 1; font-family: var(--century); text-transform: uppercase; letter-spacing: 0.02em; font-size: 14px; color: var(--ink); }
-.tw-pop-close:hover { text-decoration: underline; text-underline-offset: 3px; }
-.tw-pop-body { margin: 28px 0 40px; font-family: var(--whyte); font-size: clamp(22px, 2.1vw, 28px); line-height: 1.3; max-width: 30ch; }
-.tw-pop-cta { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; color: var(--ink); text-decoration: none; }
-.tw-pop-cta:hover { text-decoration: underline; text-underline-offset: 3px; }
-.tw-pop-img { position: relative; aspect-ratio: 1 / 1; align-self: end; overflow: hidden; }
+.tw-pop-text { display: flex; flex-direction: column; min-height: 520px; }
+/* Heading and Close share the top edge; Subscribe and the image share the bottom edge */
+.tw-pop-heading, .tw-pop-close, .tw-pop-cta { font-family: var(--century); text-transform: uppercase; letter-spacing: 0.02em; font-size: 14px; line-height: 1; }
+.tw-pop-heading { margin: 0; padding-right: 0; }
+.tw-pop-close { position: absolute; top: calc(var(--pad) - 15px); right: calc(var(--pad) - 15px); z-index: 1; min-height: 0; padding: 15px; color: var(--ink); }
+.tw-pop-close:hover, .tw-pop-cta:hover { text-decoration: underline; text-underline-offset: 3px; }
+.tw-pop-body { margin: 32px 0 40px; font-family: var(--whyte); font-size: clamp(22px, 2.1vw, 28px); line-height: 1.3; max-width: 30ch; }
+.tw-pop-cta { margin: auto 0 -15px; align-self: flex-start; display: inline-block; padding: 15px 0; color: var(--ink); text-decoration: none; }
+.tw-pop-img { position: relative; aspect-ratio: 4 / 5; align-self: end; overflow: hidden; }
 .tw-pop-img img { object-fit: cover; }
 @media (max-width: 760px) {
   .tw-pop-wrap { padding: 20px; align-items: flex-end; }
-  .tw-pop { grid-template-columns: 1fr; gap: 24px; padding: 20px; max-height: calc(100svh - 40px); overflow-y: auto; }
+  .tw-pop { --pad: 20px; grid-template-columns: 1fr; gap: 24px; max-height: calc(100svh - 40px); overflow-y: auto; }
   .tw-pop-text { min-height: 0; }
-  .tw-pop-heading, .tw-pop-close { font-size: 13px; }
-  .tw-pop-close { top: 8px; right: 20px; }
-  .tw-pop-img { margin-top: 36px; }
+  .tw-pop-heading, .tw-pop-close, .tw-pop-cta { font-size: 13px; }
+  .tw-pop-img { aspect-ratio: 3 / 2; order: -1; margin-top: 33px; }
   .tw-pop-body { margin: 16px 0 24px; font-size: 20px; }
-  .tw-pop-img { aspect-ratio: 3 / 2; order: -1; }
 }
 @media (prefers-reduced-motion: reduce) { .tw-pop, .tw-pop-scrim { transition: none; } }
