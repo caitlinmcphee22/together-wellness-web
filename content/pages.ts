@@ -21,7 +21,7 @@ export const pages: Page[] = [
         _type: 'tile',
         image: im('frontage', 'Street frontage of the Together Wellness studio'),
         caption: 'Together Wellness, Mosman Park',
-        description: 'Designed to feel calm, warm and easy to be in, from the moment you arrive.',
+        description: 'A space for you. Designed to feel calm, warm and easy to be in, from the moment you arrive.',
         link: '/our-space',
         width: 'xl',
         aspect: '16 / 9',
