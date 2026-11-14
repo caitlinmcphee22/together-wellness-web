@@ -43,19 +43,19 @@ a.tw-tile:hover .tw-caption, a.tw-card-link:hover span { text-decoration: underl
 @keyframes twIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 @keyframes twFade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes twRise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-@keyframes twToBone { from { color: var(--ink); } to { color: var(--bone); } }
+@keyframes twToWhite { from { color: var(--ink); } to { color: #FFFFFF; } }
 .tw-hero { position: relative; height: 100vh; min-height: 560px; overflow: hidden; background: var(--bone); }
 .tw-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: twFade 1.4s ease-out 1.6s both; }
 .tw-hero-shade { position: absolute; inset: 0; background: rgba(43, 42, 38, .22); animation: twFade 1.4s ease-out 1.6s both; }
 .tw-hero-inner { position: relative; height: 100%; display: flex; align-items: center; justify-content: center; padding: 0 30px; }
-.tw-hero-logo { margin: 0; line-height: 1; animation: twIn 1s cubic-bezier(.2, .7, .2, 1) .3s both, twToBone .9s ease-out 1.8s both; }
+.tw-hero-logo { margin: 0; line-height: 1; animation: twIn 1s cubic-bezier(.2, .7, .2, 1) .3s both, twToWhite .9s ease-out 1.8s both; }
 .tw-header-in { animation: twFade .6s ease-out 2.5s both; }
 .tw-in { animation: twRise .8s ease-out .1s both; }
 .tw-mark { display: block; width: clamp(min(356px, 86vw), 52.2vw, 855px); height: auto; }
 
 /* Header: hides on scroll down, returns on scroll up */
 .tw-header { position: fixed; top: 0; left: 0; right: 0; z-index: 20; transition: transform .35s ease-out, background-color .2s ease-out, color .2s ease-out; }
-.tw-header.is-over-hero { color: var(--bone); background-color: transparent; }
+.tw-header.is-over-hero { color: #FFFFFF; background-color: transparent; }
 .tw-header.is-on-page { color: var(--ink); background-color: var(--bone); }
 .tw-header.is-hidden { transform: translateY(-100%); }
 .tw-header button, .tw-header a { color: inherit; }
@@ -233,7 +233,7 @@ a.tw-tile:hover .tw-caption, a.tw-card-link:hover span { text-decoration: underl
 
 @media (prefers-reduced-motion: reduce) {
   .tw-hero-logo, .tw-hero-img, .tw-hero-shade, .tw-header-in, .tw-in { animation: none; }
-  .tw-hero-logo { color: var(--bone); }
+  .tw-hero-logo { color: #FFFFFF; }
 }
 
 /* Title sections that use the split grid keep their top spacing */
