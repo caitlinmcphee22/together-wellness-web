@@ -406,7 +406,7 @@ export const siteSettings = defineType({
         defineField({ name: 'heading', type: 'string' }),
         defineField({ name: 'body', title: 'Body text', type: 'text', rows: 4 }),
         defineField({ name: 'image', type: 'siteImage' }),
-        defineField({ name: 'ctaLabel', title: 'Button text', type: 'string', initialValue: 'Sign up' }),
+        defineField({ name: 'ctaLabel', title: 'Button text', type: 'string', initialValue: 'Subscribe' }),
         defineField({ name: 'ctaLink', title: 'Button link', type: 'string', initialValue: '#subscribe', description: 'Leave as #subscribe to take visitors to the sign-up form. A page link like /book also works.' }),
         defineField({ name: 'delaySeconds', title: 'Delay before it appears (seconds)', type: 'number', initialValue: 4 }),
       ],

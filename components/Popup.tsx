@@ -87,7 +87,7 @@ export function Popup({ data }: { data: PopupData }) {
           {data.heading ? <h2 id="tw-pop-heading" className="tw-head tw-pop-heading">{data.heading}</h2> : null}
           {data.body ? <p className="tw-pop-body">{data.body}</p> : null}
           <a className="tw-label tw-pop-cta" href={data.ctaLink || '#subscribe'} onClick={goToCta} tabIndex={open ? 0 : -1}>
-            {data.ctaLabel || 'Sign up'}
+            {data.ctaLabel || 'Subscribe'}
           </a>
         </div>
         {data.imageUrl ? (
