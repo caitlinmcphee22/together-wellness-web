@@ -12,6 +12,16 @@ export const settings: Settings = {
   instagram: 'https://www.instagram.com/togetherwellness_/',
   mailchimpAction: '',
   momenceEmbed: '',
+  popup: {
+    enabled: true,
+    colour: 'cornflower',
+    heading: 'Opening 2027 at Mos Lane',
+    body: 'Together Wellness opens at Mos Lane, Mosman Park in 2027. Join our list for occasional updates as the space comes together, including opening dates and membership details.',
+    image: { src: '/images/reformer-studio.jpg', alt: 'Reformer studio with natural light' },
+    ctaLabel: 'Sign up',
+    ctaLink: '#subscribe',
+    delaySeconds: 4,
+  },
 }
 
 export const team: TeamMember[] = [

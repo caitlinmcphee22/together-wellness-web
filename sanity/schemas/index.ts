@@ -378,6 +378,39 @@ export const siteSettings = defineType({
     defineField({ name: 'instagram', type: 'url' }),
     defineField({ name: 'mailchimpAction', title: 'Mailchimp form action URL', type: 'url', description: 'From Mailchimp: Audience › Signup forms › Embedded forms. Paste the form "action" URL.' }),
     defineField({ name: 'momenceEmbed', title: 'Momence timetable embed code', type: 'text', rows: 6 }),
+    defineField({
+      name: 'popup',
+      title: 'Sign-up popup',
+      type: 'object',
+      description: 'Shown once to each visitor a few seconds after they arrive. Visitors who close it see it again after two weeks, or straight away if the heading or body text changes.',
+      options: { collapsible: true, collapsed: false },
+      fields: [
+        defineField({ name: 'enabled', title: 'Show the popup', type: 'boolean', initialValue: true }),
+        defineField({
+          name: 'colour',
+          title: 'Background colour',
+          type: 'string',
+          initialValue: 'cornflower',
+          options: {
+            layout: 'radio',
+            direction: 'horizontal',
+            list: [
+              { title: 'Cornflower', value: 'cornflower' },
+              { title: 'Sage', value: 'sage' },
+              { title: 'Nude', value: 'nude' },
+              { title: 'Clay', value: 'clay' },
+              { title: 'Bone', value: 'bone' },
+            ],
+          },
+        }),
+        defineField({ name: 'heading', type: 'string' }),
+        defineField({ name: 'body', title: 'Body text', type: 'text', rows: 4 }),
+        defineField({ name: 'image', type: 'siteImage' }),
+        defineField({ name: 'ctaLabel', title: 'Button text', type: 'string', initialValue: 'Sign up' }),
+        defineField({ name: 'ctaLink', title: 'Button link', type: 'string', initialValue: '#subscribe', description: 'Leave as #subscribe to take visitors to the sign-up form. A page link like /book also works.' }),
+        defineField({ name: 'delaySeconds', title: 'Delay before it appears (seconds)', type: 'number', initialValue: 4 }),
+      ],
+    }),
   ],
 })
 

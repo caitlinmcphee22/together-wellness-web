@@ -61,7 +61,7 @@ export function Footer({ settings }: { settings: Settings }) {
             <Address className="tw-hide-sm" />
           </div>
           <div className="tw-foot-col">
-            <div>
+            <div id="subscribe" style={{ scrollMarginTop: 120 }}>
               <h2 className="tw-label" style={{ margin: '0 0 4px', fontSize: 12 }}>Sign up for occasional updates</h2>
               <form className="tw-form" onSubmit={subscribe} action={settings.mailchimpAction || undefined} method="post">
                 <label>

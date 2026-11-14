@@ -32,7 +32,11 @@ export async function getPolicy(slug: string): Promise<Policy | undefined> {
 
 export async function getSettings(): Promise<Settings> {
   const doc = await safe<Partial<Settings>>(`*[_type == "websiteSettings"][0]`)
-  return { ...seedSettings, ...(doc || {}) } as Settings
+  const merged = { ...seedSettings, ...(doc || {}) } as Settings
+  // Popup fields left empty in Sanity fall back to the default copy
+  const pop = Object.fromEntries(Object.entries(doc?.popup || {}).filter(([, v]) => v !== null && v !== ''))
+  merged.popup = { ...seedSettings.popup, ...pop }
+  return merged
 }
 
 export async function getTeam(): Promise<TeamMember[]> {

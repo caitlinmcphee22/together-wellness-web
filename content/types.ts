@@ -121,4 +121,14 @@ export type Settings = {
   instagram: string
   mailchimpAction?: string
   momenceEmbed?: string
+  popup?: {
+    enabled?: boolean
+    colour?: string
+    heading?: string
+    body?: string
+    image?: Img
+    ctaLabel?: string
+    ctaLink?: string
+    delaySeconds?: number
+  }
 }
