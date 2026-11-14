@@ -70,8 +70,8 @@ a.tw-tile:hover .tw-caption, a.tw-card-link:hover span { text-decoration: underl
 .tw-float-logo.is-on { opacity: 1; }
 
 /* Menu panel */
-.tw-scrim { position: fixed; inset: 0; z-index: 30; border: 0; padding: 0; background: rgba(43, 42, 38, .28); opacity: 0; pointer-events: none; transition: opacity .25s ease-out; cursor: pointer; }
-.tw-scrim.is-open { opacity: 1; pointer-events: auto; }
+.tw-scrim { position: fixed; inset: 0; z-index: 30; border: 0; padding: 0; background: rgba(43, 42, 38, .28); opacity: 0; pointer-events: none; visibility: hidden; transition: opacity .25s ease-out, visibility 0s linear .25s; cursor: pointer; }
+.tw-scrim.is-open { opacity: 1; pointer-events: auto; visibility: visible; transition: opacity .25s ease-out, visibility 0s; }
 .tw-panel { position: fixed; top: 0; bottom: 0; left: 0; z-index: 40; width: min(420px, 100%); background: var(--bone); color: var(--ink); transform: translateX(-102%); transition: transform .3s ease-out; overflow-y: auto; visibility: hidden; }
 .tw-panel.is-open { transform: none; visibility: visible; }
 .tw-panel:not(.is-open) { transition: transform .3s ease-out, visibility 0s linear .3s; }
@@ -250,3 +250,8 @@ a.tw-tile:hover .tw-caption, a.tw-card-link:hover span { text-decoration: underl
 .tw-imgbox .tw-img-fill { object-fit: cover; transition: opacity .2s ease-out; }
 .tw-card-link:hover .tw-imgbox .tw-img-fill, a.tw-tile:hover .tw-imgbox .tw-img-fill { opacity: .9; }
 .tw-split-text p.eyebrow { font-size: 13px; line-height: 1.4; }
+
+/* iPhone and iPad Safari tint their top bar from fixed elements at the top of the page.
+   A hairline of Bone keeps that bar Bone on every page; it blends into the bar itself. */
+.tw-top-tint { display: none; position: fixed; top: 0; left: 0; right: 0; height: 1px; background: var(--bone); z-index: 21; pointer-events: none; }
+@media (hover: none) { .tw-top-tint { display: block; } }

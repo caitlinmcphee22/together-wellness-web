@@ -7,6 +7,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
   const settings = await getSettings()
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bone)' }}>
+      <div className="tw-top-tint" aria-hidden="true" />
       <Header tagline={settings.tagline} instagram={settings.instagram} />
       <main id="top">{children}</main>
       <Footer settings={settings} />
