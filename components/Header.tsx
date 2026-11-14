@@ -88,14 +88,14 @@ export function Header({ tagline, instagram }: Props) {
           {/* Desktop: Menu on the left, Close on the right */}
           <div className="tw-menu-top tw-hide-sm">
             <span>Menu</span>
-            <button className="tw-navbtn" type="button" onClick={close} aria-label="Close menu" style={{ fontSize: 13 }}>
+            <button className="tw-navbtn" type="button" onClick={close} aria-label="Close menu">
               Close
             </button>
           </div>
           {/* Mobile: Close on the left, Book on the right, tagline centred below */}
           <div className="tw-menu-top-sm tw-show-sm">
             <div className="tw-menu-top">
-              <button className="tw-navbtn" type="button" onClick={close} aria-label="Close menu" style={{ fontSize: 13 }}>
+              <button className="tw-navbtn" type="button" onClick={close} aria-label="Close menu">
                 Close
               </button>
               <Link href="/book-now" onClick={close} style={{ padding: '12px 0' }}>Book</Link>
