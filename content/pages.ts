@@ -15,7 +15,7 @@ export const pages: Page[] = [
       {
         _type: 'statement',
         spacing: 'large',
-        text: 'Together Wellness is a new destination for movement, health and wellbeing, with our first studio in Mosman Park.',
+        text: 'Feeling well starts with being understood. At Together Wellness, our physiotherapists take the time to learn how you move and how you live, then shape everything that follows: your care, your movement and the moments in between. A modern approach to physiotherapy, Pilates and wellbeing, at Mos Lane, Mosman Park.',
       },
       {
         _type: 'tile',
