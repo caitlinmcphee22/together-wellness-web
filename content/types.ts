@@ -10,6 +10,9 @@ export type Img = {
   video?: { asset?: { _ref: string } }
   /** Optional smaller version of the video for phones. */
   videoMobile?: { asset?: { _ref: string } }
+  /** Local video files kept with the site, used when no video is uploaded in Sanity. */
+  videoSrc?: string
+  videoSrcMobile?: string
 }
 
 export type LinkT = { label: string; href: string }
@@ -84,6 +87,7 @@ export type Block =
   | { _type: 'timetable'; _key?: string; heading: string }
   | { _type: 'contactPrompt'; _key?: string; heading: string; body: string }
   | { _type: 'exploreServices'; _key?: string; heading?: string }
+  | { _type: 'moveWell'; _key?: string }
 
 export type Page = {
   slug: string

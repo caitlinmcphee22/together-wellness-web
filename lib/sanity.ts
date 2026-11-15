@@ -26,6 +26,6 @@ function fileRefUrl(ref?: string): string | undefined {
 /** Video URLs for an image slot, if a video has been uploaded in place of the photo. */
 export function videoUrls(img: Img | undefined): { desktop: string; mobile?: string } | undefined {
   const desktop = fileRefUrl(img?.video?.asset?._ref)
-  if (!desktop) return undefined
+  if (!desktop) return img?.videoSrc ? { desktop: img.videoSrc, mobile: img.videoSrcMobile } : undefined
   return { desktop, mobile: fileRefUrl(img?.videoMobile?.asset?._ref) }
 }

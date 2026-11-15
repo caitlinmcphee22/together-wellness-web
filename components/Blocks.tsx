@@ -355,6 +355,19 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
       )
     }
 
+    case 'moveWell':
+      // The rotating Move Well, Feel Well card from the email templates, as a silent loop
+      return (
+        <section className={`sec ${firstPad}pb-160`}>
+          <Tile
+            image={{ src: '/images/move-well-feel-well.jpg', alt: 'Move well, feel well. Together Wellness, 46 Manning Street, Mosman Park.', videoSrc: '/video/move-well-feel-well.mp4', videoSrcMobile: '/video/move-well-feel-well-mobile.mp4' }}
+            caption="Move well, feel well"
+            width="s"
+            aspect="4 / 5"
+          />
+        </section>
+      )
+
     case 'exploreServices':
       return <ExploreServices heading={b.heading} />
 

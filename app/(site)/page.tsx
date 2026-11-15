@@ -12,11 +12,16 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   const [page, settings, team] = await Promise.all([getPage('home'), getSettings(), getTeam()])
   if (!page) notFound()
+  // The Move Well, Feel Well loop sits just before Explore our services
+  const at = page.blocks.findIndex((b) => b._type === 'exploreServices')
+  const blocks = page.blocks.some((b) => b._type === 'moveWell') || at < 0
+    ? page.blocks
+    : [...page.blocks.slice(0, at), { _type: 'moveWell' as const }, ...page.blocks.slice(at)]
   return (
     <>
       <LocalBusinessJsonLd settings={settings} />
       <Hero image={page.hero} isHome />
-      <Blocks blocks={page.blocks} settings={settings} team={team} />
+      <Blocks blocks={blocks} settings={settings} team={team} />
     </>
   )
 }
