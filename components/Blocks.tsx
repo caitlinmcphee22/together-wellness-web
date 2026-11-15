@@ -199,7 +199,7 @@ function RenderBlock({ b, ctx }: { b: Block; ctx: Ctx }) {
             {(b.paragraphs || []).map((p, i) => <p key={i}>{p}</p>)}
             {b.note ? <p className="tw-label" style={{ fontSize: 13 }}>{b.note}</p> : null}
           </div>
-          <TeamGrid members={ctx.team.map((m) => ({ ...m, portraitUrl: m.portrait ? imgUrl(m.portrait, 900) : undefined }))} />
+          <TeamGrid members={ctx.team.map((m) => ({ ...m, portraitUrl: m.portrait ? imgUrl(m.portrait, 900) : undefined, profileUrl: m.profilePortrait ? imgUrl(m.profilePortrait, 900) : undefined }))} />
         </section>
       )
 

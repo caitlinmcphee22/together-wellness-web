@@ -100,6 +100,7 @@ export type TeamMember = {
   role: string
   bio?: string
   portrait?: Img
+  profilePortrait?: Img
   panelColour: 'sage' | 'cornflower' | 'nude'
   order?: number
 }

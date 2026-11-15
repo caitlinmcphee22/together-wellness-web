@@ -50,7 +50,7 @@ export function Slider({ slides }: { slides: Slide[] }) {
 }
 
 /* Team grid with slide-in bio panel */
-export function TeamGrid({ members }: { members: (TeamMember & { portraitUrl?: string })[] }) {
+export function TeamGrid({ members }: { members: (TeamMember & { portraitUrl?: string; profileUrl?: string })[] }) {
   const [open, setOpen] = useState(-1)
   const m = open >= 0 ? members[open] : members[0]
   const closeRef = useRef<HTMLButtonElement>(null)
@@ -88,8 +88,8 @@ export function TeamGrid({ members }: { members: (TeamMember & { portraitUrl?: s
             </div>
             <p className="tw-label" style={{ margin: 0, fontSize: 14 }}>{m.role}</p>
             {m.bio ? <p style={{ margin: 0, fontSize: 14, lineHeight: 1.555 }}>{m.bio}</p> : null}
-            {m.portraitUrl ? (
-              <img className="tw-img" src={m.portraitUrl} alt={`Portrait of ${m.name}`} style={{ aspectRatio: '4 / 5' }} />
+            {m.profileUrl || m.portraitUrl ? (
+              <img className="tw-img" src={m.profileUrl || m.portraitUrl} alt={`Portrait of ${m.name}`} style={{ aspectRatio: '4 / 5', objectFit: 'cover' }} />
             ) : (
               <div className="tw-label" style={{ width: '100%', aspectRatio: '4 / 5', background: 'rgba(249,247,238,.35)', display: 'flex', alignItems: 'flex-end', padding: 18, fontSize: 13 }}>
                 Portrait to come
