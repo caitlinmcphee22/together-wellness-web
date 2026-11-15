@@ -29,6 +29,8 @@ export const team: TeamMember[] = [
     name: 'Caitlin McPhee',
     role: 'Founder and Physiotherapist',
     panelColour: 'sage',
+    portrait: { src: '/images/team/caitlin-mcphee.jpg', alt: 'Caitlin McPhee' },
+    profilePortrait: { src: '/images/team/caitlin-mcphee-profile.jpg', alt: 'Caitlin McPhee' },
     bio: 'Caitlin founded Together Wellness to bring physiotherapy, Pilates and women’s health care together under one roof. She leads clinical care at the studio and the Together Wellness Pilates Training Program. [Qualifications and experience to confirm.]',
   },
   {

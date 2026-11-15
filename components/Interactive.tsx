@@ -70,7 +70,7 @@ export function TeamGrid({ members }: { members: (TeamMember & { portraitUrl?: s
           <button key={n} className="tw-person" type="button" onClick={() => setOpen(n)} aria-label={`Read about ${p.name}`}>
             <span
               className="tw-person-ph tw-label"
-              style={{ background: panelColours[p.panelColour] || panelColours.sage, ...(p.portraitUrl ? { backgroundImage: `url(${p.portraitUrl})` } : {}) }}
+              style={{ backgroundColor: panelColours[p.panelColour] || panelColours.sage, ...(p.portraitUrl ? { backgroundImage: `url(${p.portraitUrl})` } : {}) }}
             >
               {p.portraitUrl ? '' : 'Portrait to come'}
             </span>

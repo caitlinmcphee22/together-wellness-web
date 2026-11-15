@@ -41,7 +41,16 @@ export async function getSettings(): Promise<Settings> {
 
 export async function getTeam(): Promise<TeamMember[]> {
   const docs = await safe<TeamMember[]>(`*[_type == "teamMember" && showOnSite != false] | order(order asc)`)
-  return docs?.length ? docs : seedTeam
+  if (!docs?.length) return seedTeam
+  // Portraits kept in the site's own images folder fill in until one is uploaded in Sanity
+  return docs.map((d) => {
+    const seed = seedTeam.find((t) => t.name === d.name)
+    return {
+      ...d,
+      portrait: d.portrait?.asset ? d.portrait : seed?.portrait,
+      profilePortrait: d.profilePortrait?.asset ? d.profilePortrait : seed?.profilePortrait,
+    }
+  })
 }
 
 export const policySlugs = (seedPolicies as Policy[]).map((p) => p.slug)
