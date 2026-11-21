@@ -297,7 +297,7 @@ export const pages: Page[] = [
     title: 'Pilates',
     seoDescription:
       'Group Reformer, Strength, Ante and Postnatal, and Clinical Pilates at Mos Lane, Mosman Park, programmed by physiotherapists.',
-    hero: im('reformer-studio-wide', 'Reformer Pilates studio at Together Wellness'),
+    hero: im('reformer-studio', 'Reformer Pilates studio at Together Wellness'),
     blocks: [
       {
         _type: 'pageTitle',
@@ -306,7 +306,7 @@ export const pages: Page[] = [
         quote: 'Movement with purpose.',
         intro: 'Group Reformer, Strength, Ante and Postnatal, and Clinical Pilates at Mos Lane, Mosman Park.',
       },
-      { _type: 'fullImage', image: im('reformer-studio', 'Reformers in front of the equipment wall'), caption: 'Reformer Studio, Mosman Park', aspect: '16 / 8' },
+      { _type: 'fullImage', image: im('reformer-studio-wide', 'Reformer studio at Together Wellness'), caption: 'Reformer Studio, Mosman Park', aspect: '16 / 8' },
       {
         _type: 'statement',
         text: 'From dynamic reformer classes to personalised clinical Pilates, every session is shaped by physiotherapists: how classes are programmed, how instructors are trained, and how each exercise is adapted to the person doing it.',
