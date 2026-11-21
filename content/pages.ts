@@ -287,7 +287,7 @@ export const pages: Page[] = [
         _type: 'split',
         heading: 'Location',
         paragraphs: ['The studio sits at Mos Lane, Mosman Park, between the river and the coast.'],
-        slides: [im('location-map', 'Map of the streets around Mos Lane, Mosman Park, with the Together Wellness studio marked 1', '1. Together Wellness, 46 Manning St, Mosman Park')],
+        slides: [im('frontage', 'Street frontage of the Together Wellness studio', 'Mos Lane frontage' + ai)],
       },
       { _type: 'exploreServices' },
     ],
