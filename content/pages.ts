@@ -73,7 +73,7 @@ export const pages: Page[] = [
       },
       {
         _type: 'tile',
-        image: im('reception-lounge', 'Reception lounge with timber joinery and a planted pot'),
+        image: im('reception-lounge', 'Reception lounge with timber joinery and a stone basin'),
         caption: 'Reception, Mosman Park',
         description: 'Natural materials, warm textures and considered details.',
         link: '/our-space',
@@ -145,7 +145,7 @@ export const pages: Page[] = [
           'We bring together expert physiotherapy, considered Pilates and a more personal approach to wellbeing, in a space designed around the way we move, feel and live.',
         ],
         link: { label: 'Explore our space', href: '/our-space' },
-        slides: [im('reception-lounge', 'Reception lounge with timber joinery and a planted pot', 'Reception' + ai)],
+        slides: [im('reception-lounge', 'Reception lounge with timber joinery and a stone basin', 'Reception' + ai)],
       },
       {
         _type: 'split',
@@ -218,9 +218,9 @@ export const pages: Page[] = [
           'A place where the experience of arriving, moving and spending time matters just as much as the care you receive.',
         ],
         slides: [
-          im('reception-lounge', 'Reception lounge with timber joinery and a planted pot', 'Reception' + ai),
-          im('lounge-seating', 'Lounge with armchairs and artwork', 'Lounge' + ai),
-          im('arrival', 'Reception desk with timber shelving', 'Arrival' + ai),
+          im('reception-lounge', 'Reception lounge with timber joinery and a stone basin', 'Reception' + ai),
+          im('lounge-seating', 'Reception lounge with a planted pot', 'Reception lounge' + ai),
+          im('arrival', 'Reception desk with a brushed metal front', 'Arrival' + ai),
         ],
       },
       {
@@ -266,7 +266,10 @@ export const pages: Page[] = [
           'Private rooms for physiotherapy appointments, a short walk from the studios, so moving between treatment and classes is simple.',
         ],
         link: { label: 'Explore Physiotherapy', href: '/physiotherapy' },
-        slides: [im('treatment-rooms', 'Physiotherapy treatment rooms', 'Treatment rooms' + ai)],
+        slides: [
+          im('treatment-rooms', 'Physiotherapy treatment rooms', 'Treatment rooms' + ai),
+          im('treatment-room', 'Inside a treatment room', 'Treatment room' + ai),
+        ],
       },
       {
         _type: 'split',
@@ -277,7 +280,7 @@ export const pages: Page[] = [
         link: { label: 'Explore Wellness', href: '/wellness' },
         slides: [
           im('lounge', 'Lounge with armchairs and artwork', 'Lounge' + ai),
-          im('lounge-seating', 'Lounge seating', 'Lounge' + ai),
+          im('lounge-seating', 'Reception lounge with a planted pot', 'Lounge' + ai),
         ],
       },
       {
@@ -294,7 +297,7 @@ export const pages: Page[] = [
     title: 'Pilates',
     seoDescription:
       'Group Reformer, Strength, Ante and Postnatal, and Clinical Pilates at Mos Lane, Mosman Park, programmed by physiotherapists.',
-    hero: im('reformer-studio', 'Reformer Pilates studio at Together Wellness'),
+    hero: im('reformer-studio-wide', 'Reformer Pilates studio at Together Wellness'),
     blocks: [
       {
         _type: 'pageTitle',
@@ -303,7 +306,7 @@ export const pages: Page[] = [
         quote: 'Movement with purpose.',
         intro: 'Group Reformer, Strength, Ante and Postnatal, and Clinical Pilates at Mos Lane, Mosman Park.',
       },
-      { _type: 'fullImage', image: im('reformer-studio-wide', 'Reformer studio at Together Wellness'), caption: 'Reformer Studio, Mosman Park', aspect: '16 / 8' },
+      { _type: 'fullImage', image: im('reformer-studio', 'Reformers in front of the equipment wall'), caption: 'Reformer Studio, Mosman Park', aspect: '16 / 8' },
       {
         _type: 'statement',
         text: 'From dynamic reformer classes to personalised clinical Pilates, every session is shaped by physiotherapists: how classes are programmed, how instructors are trained, and how each exercise is adapted to the person doing it.',
@@ -378,7 +381,7 @@ export const pages: Page[] = [
       },
       {
         _type: 'imagePair',
-        left: im('hands-knee', 'Hands resting on a knee, black and white'),
+        left: im('treatment-room', 'Physiotherapy treatment room with desk and chairs'),
         right: im('open-hand', 'Open hand, black and white'),
       },
       {
@@ -434,7 +437,7 @@ export const pages: Page[] = [
       },
       {
         _type: 'tileWithText',
-        tile: { ...im('arrival', 'Reception desk with timber shelving', 'Arrival, Mosman Park'), description: 'Arrive, settle in and take a moment before you move.' },
+        tile: { ...im('arrival', 'Reception desk with a brushed metal front', 'Arrival, Mosman Park'), description: 'Arrive, settle in and take a moment before you move.' },
         heading: 'Room to pause.',
         paragraphs: [
           'Inspired by the natural warmth and relaxed rhythm of coastal Western Australia, our space has been thoughtfully designed to balance movement with moments of pause.',
