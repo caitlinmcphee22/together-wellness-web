@@ -219,7 +219,7 @@ export const pages: Page[] = [
         ],
         slides: [
           im('reception-lounge', 'Reception lounge with timber joinery and a stone basin', 'Reception' + ai),
-          im('lounge-seating', 'Reception lounge with a planted pot', 'Reception lounge' + ai),
+          im('lounge-seating', 'Reception lounge with a planted pot', 'Lounge' + ai),
           im('arrival', 'Reception desk with a brushed metal front', 'Arrival' + ai),
         ],
       },
