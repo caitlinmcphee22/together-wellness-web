@@ -28,7 +28,7 @@ export const pages: Page[] = [
       },
       {
         _type: 'statement',
-        text: 'Bringing together expert physiotherapy, considered Pilates and a more personal approach to wellbeing, Together Wellness is a space designed to support the way we move, feel and live.',
+        text: 'Three disciplines, one team, one considered space. Everything here is designed to work together, so you can move between care, movement and moments of pause with ease.',
       },
       { _type: 'sectionIntro', heading: 'Movement. Care. Connection.', subheading: 'A considered approach to feeling well.' },
       {
