@@ -15,7 +15,7 @@ export const pages: Page[] = [
       {
         _type: 'statement',
         spacing: 'large',
-        text: 'Feeling well starts with being understood. At Together Wellness, our physiotherapists take the time to learn how you move and how you live, then shape everything that follows: your care, your movement and the moments in between. A modern approach to physiotherapy, Pilates and wellbeing, at Mos Lane, Mosman Park.',
+        text: 'Feeling well extends beyond physical health. It is shaped by the spaces we spend time in, the people around us and the way we choose to live. Together Wellness is a design-led studio in Mosman Park, bringing physiotherapist-led care, Pilates and a more personal approach to wellbeing together to support your health at every stage of life.',
       },
       {
         _type: 'tile',
