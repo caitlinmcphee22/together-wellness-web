@@ -3,10 +3,20 @@
 // Nothing here touches Sanity or the live site.
 import type { Page } from '@/content/types'
 
-type Swap = { key: string; field: 'image' | 'right' | 'slide'; slideKey?: string; src: string; alt: string }
+type Swap = { key: string; field: 'image' | 'right' | 'slide'; slideKey?: string; src: string; alt: string; videoSrc?: string; videoSrcMobile?: string }
 
 const swaps: Record<string, Swap[]> = {
-  home: [{ key: 'f97c194afe1a', field: 'image', src: '/images/shoot/group-reach.jpg', alt: 'Three women moving together in the studio' }],
+  home: [
+    { key: 'f97c194afe1a', field: 'image', src: '/images/shoot/group-reach.jpg', alt: 'Three women moving together in the studio' },
+    {
+      key: '726b5993c17e',
+      field: 'image',
+      src: '/images/shoot/physio-close-ups.jpg',
+      alt: 'Black and white close-ups of hands on a shoulder, a calf, a wrist and a knee',
+      videoSrc: '/video/physio-close-ups.mp4',
+      videoSrcMobile: '/video/physio-close-ups-mobile.mp4',
+    },
+  ],
   pilates: [{ key: 'f9951f2a782b', field: 'right', src: '/images/shoot/group-stretch.jpg', alt: 'Three women stretching together' }],
   physiotherapy: [
     { key: '01b1d3cbe1f8', field: 'image', src: '/images/shoot/hands-shoulder.jpg', alt: 'Hands on a shoulder, black and white' },
@@ -31,7 +41,8 @@ export function applyPhotoTest(page: Page | undefined): Page | undefined {
     if (s.field === 'slide') {
       return { ...b, slides: b.slides.map((sl: any) => (sl._key === s.slideKey ? { ...sl, src: s.src, alt: s.alt } : sl)) }
     }
-    return { ...b, [s.field]: { ...b[s.field], src: s.src, alt: s.alt } }
+    const extra = s.videoSrc ? { videoSrc: s.videoSrc, videoSrcMobile: s.videoSrcMobile } : {}
+    return { ...b, [s.field]: { ...b[s.field], src: s.src, alt: s.alt, ...extra } }
   })
   return { ...page, blocks } as Page
 }
