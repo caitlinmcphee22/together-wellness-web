@@ -42,10 +42,10 @@ const inserts: Record<string, { after: string; block: Record<string, unknown> }[
         width: 'l',
         caption: 'Moving Better Together',
         image: {
-          src: '/images/shoot/moving-better-together.jpg',
+          src: '/images/shoot/moving-better-together-caps.jpg',
           alt: 'Moving Better Together',
-          videoSrc: '/video/moving-better-together.mp4',
-          videoSrcMobile: '/video/moving-better-together-mobile.mp4',
+          videoSrc: '/video/moving-better-together-caps.mp4',
+          videoSrcMobile: '/video/moving-better-together-caps-mobile.mp4',
         },
       },
     },
