@@ -3,6 +3,7 @@ import { pages as seedPages } from '@/content/pages'
 import seedPolicies from '@/content/policies.json'
 import { settings as seedSettings, team as seedTeam } from '@/content/site'
 import type { Page, Policy, Settings, TeamMember } from '@/content/types'
+import { applyPhotoTest } from './photoTest'
 
 // Content comes from Sanity. If Sanity is unreachable or a document hasn't been
 // published yet, the approved copy bundled in /content is used instead, so the
@@ -20,8 +21,8 @@ async function safe<T>(query: string, params: Record<string, unknown> = {}): Pro
 
 export async function getPage(slug: string): Promise<Page | undefined> {
   const doc = await safe<Page>(`*[_type == "websitePage" && slug.current == $slug][0]{..., "slug": slug.current}`, { slug })
-  if (doc?.blocks?.length) return doc
-  return seedPages.find((p) => p.slug === slug)
+  if (doc?.blocks?.length) return applyPhotoTest(doc)
+  return applyPhotoTest(seedPages.find((p) => p.slug === slug))
 }
 
 export async function getPolicy(slug: string): Promise<Policy | undefined> {
