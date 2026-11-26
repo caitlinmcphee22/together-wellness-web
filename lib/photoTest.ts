@@ -30,10 +30,31 @@ const swaps: Record<string, Swap[]> = {
   ],
 }
 
+// New blocks to preview, inserted after the block with the given key.
+const inserts: Record<string, { after: string; block: Record<string, unknown> }[]> = {
+  home: [
+    {
+      after: '1009ae9aa1aa',
+      block: {
+        _type: 'tile',
+        _key: 'test-moving-better-together',
+        aspect: '3 / 2',
+        width: 'l',
+        caption: 'Moving Better Together',
+        image: {
+          src: '/images/shoot/moving-better-together.jpg',
+          alt: 'Moving Better Together',
+          videoSrc: '/video/moving-better-together.mp4',
+          videoSrcMobile: '/video/moving-better-together-mobile.mp4',
+        },
+      },
+    },
+  ],
+}
+
 export function applyPhotoTest(page: Page | undefined): Page | undefined {
   if (!page) return page
-  const list = swaps[page.slug as string]
-  if (!list) return page
+  const list = swaps[page.slug as string] || []
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const blocks = (page.blocks as any[]).map((b) => {
     const s = list.find((x) => x.key === b._key)
@@ -44,5 +65,9 @@ export function applyPhotoTest(page: Page | undefined): Page | undefined {
     const extra = s.videoSrc ? { videoSrc: s.videoSrc, videoSrcMobile: s.videoSrcMobile } : {}
     return { ...b, [s.field]: { ...b[s.field], src: s.src, alt: s.alt, ...extra } }
   })
+  for (const ins of inserts[page.slug as string] || []) {
+    const i = blocks.findIndex((b) => b._key === ins.after)
+    if (i >= 0) blocks.splice(i + 1, 0, ins.block)
+  }
   return { ...page, blocks } as Page
 }
